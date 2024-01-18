@@ -1,6 +1,7 @@
 ﻿@page "/user/add"
 @page "/user/edit/{userId:int}"
 @using BlazorCRUD.Models
+@inject HttpClient Http
 @inject NavigationManager NavigationManager
 <h1>@Title User</h1>
 <hr />
