@@ -1,0 +1,26 @@
+﻿ git checkout -b users/sc/20240118_Migration  
+
+cd .\TimeTracker\
+dotnet tool install --global dotnet-ef
+dotnet tool update --global dotnet-ef
+dotnet add package Microsoft.EntityFrameworkCore.Design
+
+dotnet ef migrations add InitialCreateTable --context EmployeeDbContext
+
+dotnet ef database update --context EmployeeDbContext
+
+dotnet ef migrations add InitialCreate --context EmployeeDbContext
+
+
+// Drop and Recreate
+\c postgres;
+
+drop database localemployeedb;
+
+drop database localemployeedb WITH (FORCE);
+
+REVOKE ALL on schema public from localsanthozuser01;
+
+drop user localsanthozuser01;
+
+\c postgres;

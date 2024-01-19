@@ -1,27 +1,34 @@
-using BlazorCRUD.Components;
+using BlazorCRUD.Contexts;
+using BlazorCRUD.Interfaces;
+using BlazorCRUD.Models;
+using BlazorCRUD.Services;
+using Microsoft.AspNetCore.ResponseCompression;
+z
 
-var builder = WebApplication.CreateBuilder(args);
+//using BlazorCRUD.Components;
 
-// Add services to the container.
-builder.Services.AddRazorComponents()
-    .AddInteractiveServerComponents();
+//var builder = WebApplication.CreateBuilder(args);
 
-var app = builder.Build();
+//// Add services to the container.
+//builder.Services.AddRazorComponents()
+//    .AddInteractiveServerComponents();
 
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
-{
-    app.UseExceptionHandler("/Error", createScopeForErrors: true);
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
-}
+//var app = builder.Build();
 
-app.UseHttpsRedirection();
+//// Configure the HTTP request pipeline.
+//if (!app.Environment.IsDevelopment())
+//{
+//    app.UseExceptionHandler("/Error", createScopeForErrors: true);
+//    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+//    app.UseHsts();
+//}
 
-app.UseStaticFiles();
-app.UseAntiforgery();
+//app.UseHttpsRedirection();
 
-app.MapRazorComponents<App>()
-    .AddInteractiveServerRenderMode();
+//app.UseStaticFiles();
+//app.UseAntiforgery();
 
-app.Run();
+//app.MapRazorComponents<App>()
+//    .AddInteractiveServerRenderMode();
+
+//app.Run();

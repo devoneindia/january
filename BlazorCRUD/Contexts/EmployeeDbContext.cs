@@ -5,6 +5,10 @@ namespace BlazorCRUD.Contexts
 {
     public class EmployeeDbContext : DbContext
     {
+        public EmployeeDbContext(DbContextOptions<EmployeeDbContext> options) : base(options)
+        {
+
+        }
         public DbSet<UserDetail> UserDetails { get; set; }
         public EmployeeDbContext()
         {
