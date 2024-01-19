@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace BlazorCRUD.Models
 {
     [Table("user_details")]
-    public class userDetails
+    public class User
     {
         [Column("user_id")]
         [Key]

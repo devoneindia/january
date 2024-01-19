@@ -1,7 +1,25 @@
 using BlazorCRUD.Components;
+using BlazorCRUD.Context;
+using BlazorCRUD.Contracts;
+using BlazorCRUD.Services;
+using Microsoft.EntityFrameworkCore;
+using System.Net.Http;
+
+
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddHttpClient("Http", client =>
+{
+    client.BaseAddress = new Uri("https://localhost:7108/"); // Replace with your actual API base URL
+});
+
+builder.Services.AddDbContext<UserDbContext>
+    (options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("ConnectionStrings")));
+builder.Services.AddTransient<IUser, UserManager>();
+builder.Services.AddHttpClient();
+builder.Services.AddControllersWithViews();
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();

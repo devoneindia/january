@@ -5,11 +5,14 @@ namespace BlazorCRUD.Context
 {
     public class UserDbContext : DbContext
     {
+        public UserDbContext(DbContextOptions<UserDbContext> options) : base(options)
+        {
+        }
         public UserDbContext()
         {
             AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
         }
-        public DbSet<userDetails> userDetail { get; set; }
+        public DbSet<User> userDetail { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             var configurationInstance = new ConfigurationBuilder()
