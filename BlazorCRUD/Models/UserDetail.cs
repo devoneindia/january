@@ -16,6 +16,7 @@ namespace BlazorCRUD.Models
         [MaxLength(500)]
         [Column("address")]
         public string? Address { get; set; }
+
         [MaxLength(50)]
         [Column("cell_number")]
         public string? CellNumber { get; set; }
