@@ -1,0 +1,44 @@
+﻿@page "/employee"
+<h3>Employee</h3>
+<div class="container">
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4"></div>
+        <div class="col-4">
+            <button class="btn btn-primary" @onclick="AddUser">Add User</button>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+        @if (Employees == null || Employees.Count() == 0)
+        {
+            <p><em>No Employees Found</em></p>
+        }
+        else
+        {
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>UserName</th>
+                        <th>Address</th>
+                        <th>CellNumber</th>
+                        <th>EmailId</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var employee in Employees)
+                    {
+                        <tr>
+                            <td>@employee.UserName</td>
+                            <td>@employee.Address</td>
+                            <td>@employee.CellNumber</td>
+                            <td>@employee.EmailId</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        </div>
+    </div>
+</div>
