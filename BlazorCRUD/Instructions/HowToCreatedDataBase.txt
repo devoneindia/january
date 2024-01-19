@@ -1,0 +1,13 @@
+﻿//"DbTimeTracker": "User ID=localttuser01;Password=Something@1234;Host=localhost;Port=5432;Database=LocalTimeTrackerDb;Connection Lifetime=0;"
+
+Run the following in PSQL Tool (postgres)
+
+	CREATE USER localemployeedbakilauser03 WITH password 'LSUser03';
+
+	CREATE DATABASE localuserdbap;
+
+	GRANT ALL PRIVILEGES ON DATABASE localuserdbap TO localemployeedbakilauser03;
+
+	\c localuserdbap
+	GRANT ALL on SCHEMA public to localemployeedbakilauser03;
+
