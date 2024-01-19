@@ -17,13 +17,13 @@ namespace BlazorCRUD.Models
         [MaxLength(100)]
         [Column("address")]
         public string? Address { get; set; }
-
+        
         [MaxLength(50)]
         [Column("cell_number")]
         public string? CellNumber { get; set; }
 
         [MaxLength(50)]
-        [Column("email")]
+        [Column("user_email")]
         public string? Email { get; set; }
     }
 }
