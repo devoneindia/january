@@ -17,6 +17,7 @@ namespace BlazorCRUD.Contexts
             var configurationInstance = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetParent(AppContext.BaseDirectory)?.FullName ?? ".")
                 .AddJsonFile("appsettings.json",optional:true)
+                .AddJsonFile("appsettings.local.json", optional: true)
                 .Build();
 
             string dbConnString = configurationInstance["ConnectionStrings:DbEmployee"] ?? "";
