@@ -1,8 +1,13 @@
 using BlazorCRUD.Components;
+using BlazorCRUD.Contexts;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddDbContext<EmployeeDbContext>
+    (options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DbEmployee")));
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 

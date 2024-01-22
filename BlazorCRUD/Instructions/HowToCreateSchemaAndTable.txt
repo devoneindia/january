@@ -1,0 +1,16 @@
+﻿cd .\TimeTracker\
+dotnet tool install --global dotnet-ef
+
+dotnet tool update --global dotnet-ef
+
+dotnet add package Microsoft.EntityFrameworkCore.Design
+
+dotnet ef migrations add InitialCreate --context EmployeeDbContext
+
+dotnet ef database update --context EmployeeDbContext
+
+//HOW TO ADD a New column
+//To add newcolumn using Migration
+
+dotnet ef migrations added Address2 --context EmployeeDbContext
+dotnet ef database update --context EmployeeDbContext
