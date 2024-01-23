@@ -1,0 +1,57 @@
+﻿@page "/registration"
+@inject ILogger<Registration> Logger
+@using Models
+@using Contexts
+
+<h3>Registration</h3>
+
+<form method="post" @formname="starship-plain-form">
+    @* <AntiforgeryToken /> *@
+    <div>
+        <label>
+            UserId:
+            <InputText @bind-Value="Model!.UserId" />
+        </label>
+        <label>
+            Username:
+            <InputText @bind-Value="Model!.UserName" />
+        </label>
+        <label>
+            Address:
+            <InputText @bind-Value="Model!.Address" />
+        </label>
+        <label>
+            CellNumber:
+            <InputText @bind-Value="Model!.CellNumber" />
+        </label>
+        <label>
+            EmailId:
+            <InputText @bind-Value="Model!.EmailId" />
+        </label>
+    </div>
+    <div>
+        <button type="submit">Submit</button>
+    </div>
+</form>
+@code {
+
+    [SupplyParameterFromForm]
+    public RegistrationModel? Model { get; set; }
+    public List<EmployeeDbContext> employeeDbContexts { get; set; }
+    protected override void OnInitialized() => Model ??= new();
+
+    private void Submit()
+    {
+        RegistrationModel registrationModel = new RegistrationModel();
+        Logger.LogInformation("Id = {Id}", Model?.UserId);
+        Logger.LogInformation("UserName = {UserName}", Model?.UserName);
+        Logger.LogInformation("Address = {Address}", Model?.Address);
+        Logger.LogInformation("CellNumber = {CellNumber}", Model?.CellNumber);
+        Logger.LogInformation("EmailId = {EmailId}", Model?.EmailId);
+        // using (EmployeeDbContext employeeDbContext = new EmployeeDbContext())
+        // {
+        //     employeeDbContext.UserDetails.Add(LogInformation);
+        //     employeeDbContext.SaveChanges();
+        // }
+    }
+}
