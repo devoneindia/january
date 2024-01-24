@@ -1,5 +1,4 @@
-﻿
-using BlazorCRUD.Contexts;
+﻿using BlazorCRUD.Contexts;
 using BlazorCRUD.Models;
 using Microsoft.EntityFrameworkCore;
 
