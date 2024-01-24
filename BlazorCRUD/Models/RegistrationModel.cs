@@ -3,13 +3,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BlazorCRUD.Models
 {
-    [Table("user_detail")]
-    
-    public class UserDetail
-    {        
+    [Table("user_registration")]
+    public class RegistrationModel
+    {
         [Column("user_id")]
         [Key]
-        public string? UserId { get; set; }
+        public string? UserId { get; set; } 
         [MaxLength(100)]
         [Column("user_name")]
         public string? UserName { get; set; }
