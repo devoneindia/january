@@ -9,7 +9,7 @@ namespace BlazorCRUD.Models
     {        
         [Column("user_id")]
         [Key]
-        public string? UserId { get; set; }
+        public int UserId { get; set; }
         [MaxLength(100)]
         [Column("user_name")]
         public string? UserName { get; set; }
